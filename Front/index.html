@@ -10,7 +10,12 @@
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script>
     const MY_SERVER= "http://127.0.0.1:5000"
-    axios.get(MY_SERVER).then((response)=>console.log(response))
+    const TSLA= async()=>{
+        const data= await axios.get(MY_SERVER)
+        display.data= data.map(p=><div>${p.ticker}${p.data['c']}</div>).join("")
+
+    }
+    TSLA()
     </script>
 </body>
 </html>
